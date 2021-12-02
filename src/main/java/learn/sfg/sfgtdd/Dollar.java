@@ -1,19 +1,12 @@
 package learn.sfg.sfgtdd;
 
-public class Dollar {
-    private final int amount;
+public class Dollar extends Money {
 
     public Dollar(int amount) {
-        this.amount = amount;
+        super(amount);
     }
 
     public Dollar times(int multiplier) {
         return new Dollar(amount * multiplier);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        Dollar other = (Dollar) obj;
-        return amount == other.amount;
     }
 }

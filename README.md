@@ -16,3 +16,6 @@ History
     * need: 
         * eliminate Dollar/Franc duplication
         * common equals()/times() methods
+* Implement common equality in abstract super class
+    * need:
+        * compare Francs with Dollars
