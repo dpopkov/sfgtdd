@@ -1,13 +1,13 @@
 package learn.sfg.sfgtdd;
 
 public class Dollar {
-    public double amount;
+    public final double amount;
 
-    public Dollar(int amount) {
+    public Dollar(double amount) {
         this.amount = amount;
     }
 
-    public void times(double multiplier) {
-        amount = amount * multiplier;
+    public Dollar times(double multiplier) {
+        return new Dollar(amount * multiplier);
     }
 }
