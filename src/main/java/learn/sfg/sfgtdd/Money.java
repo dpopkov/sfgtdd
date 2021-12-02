@@ -9,6 +9,9 @@ public abstract class Money {
 
     @Override
     public boolean equals(Object obj) {
+        if (!getClass().equals(obj.getClass())) {
+            return false;
+        }
         Money money = (Money) obj;
         return amount == money.amount;
     }

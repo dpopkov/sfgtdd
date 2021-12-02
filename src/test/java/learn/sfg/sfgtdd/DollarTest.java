@@ -22,5 +22,6 @@ class DollarTest {
         assertEquals(five1, five2);
         assertEquals(five2, five1);
         assertNotEquals(five1, new Dollar(6));
+        assertNotEquals(five1, new Franc(5));
     }
 }

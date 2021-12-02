@@ -19,3 +19,4 @@ History
 * Implement common equality in abstract super class
     * need:
         * compare Francs with Dollars
+* Use getClass() to compare Francs with Dollars
