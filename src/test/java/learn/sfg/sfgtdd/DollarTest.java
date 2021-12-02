@@ -10,8 +10,17 @@ class DollarTest {
     void testMultiplication() {
         Dollar five = new Dollar(5);
         Dollar product = five.times(2);
-        assertEquals(10, product.amount);
+        assertEquals(new Dollar(10), product);
         product = five.times(3);
-        assertEquals(15, product.amount);
+        assertEquals(new Dollar(15), product);
+    }
+
+    @Test
+    void testEquality() {
+        Dollar five1 = new Dollar(5);
+        Dollar five2 = new Dollar(5);
+        assertEquals(five1, five2);
+        assertEquals(five2, five1);
+        assertNotEquals(five1, new Dollar(6));
     }
 }

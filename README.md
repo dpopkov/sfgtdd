@@ -10,3 +10,5 @@ History
 * Degenerate Objects
     * Testing side effects
         * Create immutable objects
+* Test Equality
+* Implement privacy
