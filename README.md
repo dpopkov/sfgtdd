@@ -12,3 +12,7 @@ History
         * Create immutable objects
 * Test Equality
 * Implement privacy
+* Add another currency - Franc
+    * need: 
+        * eliminate Dollar/Franc duplication
+        * common equals()/times() methods
