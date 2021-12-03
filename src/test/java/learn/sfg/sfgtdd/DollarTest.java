@@ -22,4 +22,9 @@ class DollarTest {
         assertNotEquals(fiveDollars1, Money.dollar(6));
         assertNotEquals(fiveDollars1, Money.franc(5));
     }
+
+    @Test
+    void testCurrency() {
+        assertEquals("USD", Money.dollar(1).currency());
+    }
 }

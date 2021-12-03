@@ -21,4 +21,9 @@ public class FrancTest {
         assertNotEquals(fiveFrancs1, Money.franc(6));
         assertNotEquals(fiveFrancs1, Money.dollar(5));
     }
+
+    @Test
+    void testCurrency() {
+        assertEquals("CHF", Money.franc(1).currency());
+    }
 }

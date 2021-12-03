@@ -2,9 +2,15 @@ package learn.sfg.sfgtdd;
 
 public abstract class Money {
     protected final int amount;
+    protected final String currency;
 
-    public Money(int amount) {
+    public Money(int amount, String currency) {
         this.amount = amount;
+        this.currency = currency;
+    }
+
+    protected String currency() {
+        return currency;
     }
 
     public abstract Money times(int multiplier);
@@ -19,10 +25,10 @@ public abstract class Money {
     }
 
     public static Money dollar(int amount) {
-        return new Dollar(amount);
+        return new Dollar(amount, "USD");
     }
 
     public static Money franc(int amount) {
-        return new Franc(amount);
+        return new Franc(amount, "CHF");
     }
 }

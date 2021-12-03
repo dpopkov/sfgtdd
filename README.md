@@ -22,3 +22,4 @@ History
 * Use getClass() to compare Francs with Dollars
 * Make objects using factory methods
     * Reduce the direct references to subclasses
+* Add currency property to Money
