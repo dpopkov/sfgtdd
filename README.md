@@ -25,3 +25,5 @@ History
 * Add currency property to Money
 * Eliminate duplication of method times(int)
 * Get rid of subclasses
+* Make minimum implementation of addition to have green test
+    * add Expression and Bank
