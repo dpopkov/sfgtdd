@@ -24,3 +24,4 @@ History
     * Reduce the direct references to subclasses
 * Add currency property to Money
 * Eliminate duplication of method times(int)
+* Get rid of subclasses
