@@ -7,20 +7,18 @@ import static org.junit.jupiter.api.Assertions.*;
 public class FrancTest {
     @Test
     void testMultiplication() {
-        Franc five = new Franc(5);
-        Franc product = five.times(2);
-        assertEquals(new Franc(10), product);
-        product = five.times(3);
-        assertEquals(new Franc(15), product);
+        Money fiveFrancs = Money.franc(5);
+        assertEquals(Money.franc(10), fiveFrancs.times(2));
+        assertEquals(Money.franc(15), fiveFrancs.times(3));
     }
 
     @Test
     void testEquality() {
-        Franc five1 = new Franc(5);
-        Franc five2 = new Franc(5);
-        assertEquals(five1, five2);
-        assertEquals(five2, five1);
-        assertNotEquals(five1, new Franc(6));
-        assertNotEquals(five1, new Dollar(5));
+        Money fiveFrancs1 = Money.franc(5);
+        Money fiveFrancs2 = Money.franc(5);
+        assertEquals(fiveFrancs1, fiveFrancs2);
+        assertEquals(fiveFrancs2, fiveFrancs1);
+        assertNotEquals(fiveFrancs1, Money.franc(6));
+        assertNotEquals(fiveFrancs1, Money.dollar(5));
     }
 }

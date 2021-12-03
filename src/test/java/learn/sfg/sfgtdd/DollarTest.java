@@ -8,20 +8,18 @@ class DollarTest {
 
     @Test
     void testMultiplication() {
-        Dollar five = new Dollar(5);
-        Dollar product = five.times(2);
-        assertEquals(new Dollar(10), product);
-        product = five.times(3);
-        assertEquals(new Dollar(15), product);
+        Money fiveDollars = Money.dollar(5);
+        assertEquals(Money.dollar(10), fiveDollars.times(2));
+        assertEquals(Money.dollar(15), fiveDollars.times(3));
     }
 
     @Test
     void testEquality() {
-        Dollar five1 = new Dollar(5);
-        Dollar five2 = new Dollar(5);
-        assertEquals(five1, five2);
-        assertEquals(five2, five1);
-        assertNotEquals(five1, new Dollar(6));
-        assertNotEquals(five1, new Franc(5));
+        Money fiveDollars1 = Money.dollar(5);
+        Money fiveDollars2 = Money.dollar(5);
+        assertEquals(fiveDollars1, fiveDollars2);
+        assertEquals(fiveDollars2, fiveDollars1);
+        assertNotEquals(fiveDollars1, Money.dollar(6));
+        assertNotEquals(fiveDollars1, Money.franc(5));
     }
 }
