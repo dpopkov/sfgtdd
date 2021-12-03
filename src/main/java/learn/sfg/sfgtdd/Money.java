@@ -1,6 +1,6 @@
 package learn.sfg.sfgtdd;
 
-public abstract class Money {
+public class Money {
     protected final int amount;
     protected final String currency;
 
@@ -13,15 +13,17 @@ public abstract class Money {
         return currency;
     }
 
-    public abstract Money times(int multiplier);
+    public Money times(int multiplier) {
+        return new Money(amount * multiplier, currency);
+    }
 
     @Override
     public boolean equals(Object obj) {
-        if (!getClass().equals(obj.getClass())) {
+        if (!(obj instanceof Money)) {
             return false;
         }
         Money money = (Money) obj;
-        return amount == money.amount;
+        return amount == money.amount && currency.equals(money.currency);
     }
 
     public static Money dollar(int amount) {
@@ -30,5 +32,13 @@ public abstract class Money {
 
     public static Money franc(int amount) {
         return new Franc(amount, "CHF");
+    }
+
+    @Override
+    public String toString() {
+        return "Money{" +
+                "amount=" + amount +
+                ", currency='" + currency + '\'' +
+                '}';
     }
 }

@@ -23,3 +23,4 @@ History
 * Make objects using factory methods
     * Reduce the direct references to subclasses
 * Add currency property to Money
+* Eliminate duplication of method times(int)
