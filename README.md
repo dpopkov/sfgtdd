@@ -27,3 +27,6 @@ History
 * Get rid of subclasses
 * Make minimum implementation of addition to have green test
     * add Expression and Bank
+* Implement Bank reduce method without conversion yet
+    * refactor method reduce to Expression interface
+    * add Sum as implementation of Expression
