@@ -34,3 +34,6 @@ History
     * add Pair to represent currency pairs within Bank
     * add conversion rate to Bank
     * change reduce method to accept Bank
+* Implement mixed addition
+    * reduce operands in Sum before addition
+    * move method plus to Expression
