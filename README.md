@@ -30,3 +30,7 @@ History
 * Implement Bank reduce method without conversion yet
     * refactor method reduce to Expression interface
     * add Sum as implementation of Expression
+* Implement reducing with conversion
+    * add Pair to represent currency pairs within Bank
+    * add conversion rate to Bank
+    * change reduce method to accept Bank

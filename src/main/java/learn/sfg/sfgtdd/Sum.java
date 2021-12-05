@@ -10,7 +10,8 @@ public class Sum implements Expression {
     }
 
     @Override
-    public Money reduce(String toCurrency) {
+    public Money reduce(Bank bank, String toCurrency) {
+        // todo: reduce both operands to target currency, then add
         final int sumAmount = augend.amount + addend.amount;
         return new Money(sumAmount, toCurrency);
     }
