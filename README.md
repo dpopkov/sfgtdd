@@ -1,6 +1,8 @@
 TDD by Example
 ==============
 
+Code for Section 3 "Test Driven Development by Example" in "Testing Spring Boot" course.
+
 History
 -------
 * Multi-Currency Money
@@ -37,3 +39,5 @@ History
 * Implement mixed addition
     * reduce operands in Sum before addition
     * move method plus to Expression
+* Implement plus() on Sum
+* Add times() to Expression, implement times() on Sum
