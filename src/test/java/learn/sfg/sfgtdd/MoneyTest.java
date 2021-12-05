@@ -1,14 +1,26 @@
 package learn.sfg.sfgtdd;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class MoneyTest {
 
+    private Bank bank;
+    private Money fiveDollars;
+    private Money tenFrancs;
+
+    @BeforeEach
+    void setup() {
+        bank = new Bank();
+        bank.addRate("CHF", "USD", 2);
+        fiveDollars = Money.dollar(5);
+        tenFrancs = Money.franc(10);
+    }
+
     @Test
     void testMultiplication() {
-        Money fiveDollars = Money.dollar(5);
         assertEquals(Money.dollar(10), fiveDollars.times(2));
         assertEquals(Money.dollar(15), fiveDollars.times(3));
 
@@ -19,7 +31,6 @@ class MoneyTest {
 
     @Test
     void testEquality() {
-        Money fiveDollars = Money.dollar(5);
         assertEquals(fiveDollars, Money.dollar(5));
         assertNotEquals(fiveDollars, Money.dollar(6));
         assertNotEquals(fiveDollars, Money.franc(5));
@@ -38,18 +49,14 @@ class MoneyTest {
 
     @Test
     void testSimpleAddition() {
-        Money fiveDollars = Money.dollar(5);
         Expression sum = fiveDollars.plus(fiveDollars);
-        Bank bank = new Bank();
         Money reduced = bank.reduce(sum, "USD");
         assertEquals(Money.dollar(10), reduced);
     }
 
     @Test
     void testPlusReturnsSum() {
-        Money fiveDollars = Money.dollar(5);
-        Expression expr = fiveDollars.plus(fiveDollars);
-        Sum sum = (Sum) expr;
+        Sum sum = (Sum) fiveDollars.plus(fiveDollars);
         assertEquals(fiveDollars, sum.augend);
         assertEquals(fiveDollars, sum.addend);
     }
@@ -57,22 +64,18 @@ class MoneyTest {
     @Test
     void testReduceSum() {
         Expression sum = new Sum(Money.dollar(3), Money.dollar(4));
-        Bank bank = new Bank();
         Money result = bank.reduce(sum, "USD");
         assertEquals(Money.dollar(7), result);
     }
 
     @Test
     void testReduceMoney() {
-        Bank bank = new Bank();
         Money result = bank.reduce(Money.dollar(1), "USD");
         assertEquals(Money.dollar(1), result);
     }
 
     @Test
     void testReduceMoneyToDifferentCurrency() {
-        Bank bank = new Bank();
-        bank.addRate("CHF", "USD", 2);
         Money result = bank.reduce(Money.franc(2), "USD");
         assertEquals(Money.dollar(1), result);
     }
@@ -85,20 +88,12 @@ class MoneyTest {
 
     @Test
     void testMixedAdditions() {
-        Expression fiveDollars = Money.dollar(5);
-        Expression tenFrancs = Money.franc(10);
-        Bank bank = new Bank();
-        bank.addRate("CHF", "USD", 2);
         Money result = bank.reduce(fiveDollars.plus(tenFrancs), "USD");
         assertEquals(Money.dollar(10), result);
     }
 
     @Test
     void testSumPlusMoney() {
-        Money fiveDollars = Money.dollar(5);
-        Money tenFrancs = Money.franc(10);
-        Bank bank = new Bank();
-        bank.addRate("CHF", "USD", 2);
         Expression sum = new Sum(fiveDollars, tenFrancs).plus(fiveDollars);
         Money result = bank.reduce(sum, "USD");
         assertEquals(Money.dollar(15), result);
@@ -106,10 +101,6 @@ class MoneyTest {
 
     @Test
     void testSumTimes() {
-        Money fiveDollars = Money.dollar(5);
-        Money tenFrancs = Money.franc(10);
-        Bank bank = new Bank();
-        bank.addRate("CHF", "USD", 2);
         Expression sum = new Sum(fiveDollars, tenFrancs).times(2);
         Money result = bank.reduce(sum, "USD");
         assertEquals(Money.dollar(20), result);
